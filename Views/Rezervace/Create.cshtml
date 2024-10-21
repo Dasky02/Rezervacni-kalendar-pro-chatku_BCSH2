@@ -1,0 +1,22 @@
+@model ChatkaReservation.Models.Rezervace
+
+<h2>Nová rezervace</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="DatumOd"></label>
+        <input asp-for="DatumOd" type="date" />
+        <span asp-validation-for="DatumOd" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="DatumDo"></label>
+        <input asp-for="DatumDo" type="date" />
+        <span asp-validation-for="DatumDo" class="text-danger"></span>
+    </div>
+    <div>
+    <label asp-for="ChatkaId"></label>
+    <select asp-for="ChatkaId" asp-items="ViewBag.Chatky"></select>
+    <span asp-validation-for="ChatkaId" class="text-danger"></span>
+    </div>
+    <button type="submit">Uložit rezervaci</button>
+</form>

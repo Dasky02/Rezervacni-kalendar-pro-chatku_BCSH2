@@ -6,9 +6,9 @@ namespace ChatkaReservation.Models
     {
         public int Id { get; set; }
         public required string Nazev { get; set; }
-        public int Kapacita { get; set; }
+        // Přidej další vlastnosti, které chceš mít pro chatku
 
-        // Možná propojení s rezervacemi
-        public required List<Rezervace> Rezervace { get; set; }
+        // Propojení s rezervacemi (volitelné, pokud chceš mít možnost přístupu k rezervacím z chatky)
+        public virtual ICollection<Rezervace> Rezervace { get; set; } = new List<Rezervace>();
     }
 }

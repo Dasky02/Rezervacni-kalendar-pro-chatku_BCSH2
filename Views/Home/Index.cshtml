@@ -5,4 +5,11 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <nav>
+        <ul>
+            <li><a href="@Url.Action("Login", "Account")">Přihlásit se</a></li>
+            <li><a href="@Url.Action("Reservation", "Home")">Rezervovat chatku</a></li>
+            <li><a href="@Url.Action("Availability", "Home")">Zobrazit obsazenost</a></li>
+        </ul>
+    </nav>
 </div>

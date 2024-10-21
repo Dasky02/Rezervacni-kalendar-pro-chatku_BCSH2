@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsazenost Chatky</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Obsazenost Chatky</h1>
+    <nav>
+        <ul>
+            <li><a href="@Url.Action("Login", "Home")">Přihlásit se</a></li>
+            <li><a href="@Url.Action("Reservation", "Home")">Rezervovat chatku</a></li>
+            <li><a href="@Url.Action("Availability", "Home")">Zobrazit obsazenost</a></li>
+        </ul>
+    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>Datum od</th>
+                <th>Datum do</th>
+                <th>Uživatel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Zde budou dynamicky generované rezervace -->
+        </tbody>
+    </table>
+    <p><a href="reservation.html">Zpět na rezervaci</a></p>
+</body>
+</html>

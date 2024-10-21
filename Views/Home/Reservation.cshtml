@@ -1,0 +1,15 @@
+@model ChatkaReservation.Models.ReservationViewModel
+
+<h2>Rezervace chatky</h2>
+
+<form asp-action="Reserve" method="post">
+    <div>
+        <label for="dateFrom">Datum od:</label>
+        <input type="date" id="dateFrom" name="dateFrom" required />
+    </div>
+    <div>
+        <label for="dateTo">Datum do:</label>
+        <input type="date" id="dateTo" name="dateTo" required />
+    </div>
+    <button type="submit">Rezervovat</button>
+</form>

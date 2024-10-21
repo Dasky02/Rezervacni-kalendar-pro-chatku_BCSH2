@@ -18,12 +18,40 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/dasky/ChatkaReservation
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/dasky/ChatkaReservation/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dasky/ChatkaReservation/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dasky/ChatkaReservation/Views/Home/Availability.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BdmFpbGFiaWxpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/dasky/ChatkaReservation/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/dasky/ChatkaReservation/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dasky/ChatkaReservation/Views/Home/Reservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9SZXNlcnZhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dasky/ChatkaReservation/Views/Rezervace/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmV6ZXJ2YWNlL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dasky/ChatkaReservation/Views/Rezervace/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmV6ZXJ2YWNlL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dasky/ChatkaReservation/Views/Rezervace/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmV6ZXJ2YWNlL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/dasky/ChatkaReservation/Views/Shared/Error.cshtml]
