@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChatkaReservation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96d9e13094c13074ce36f8e662aa7dca23a5d9ad")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChatkaReservation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChatkaReservation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
