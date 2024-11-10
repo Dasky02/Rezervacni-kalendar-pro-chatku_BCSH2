@@ -1,0 +1,505 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\views\\home\\availability.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:views\\home\\availability.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\views\\reservation\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:views\\reservation\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\cottage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\cottage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\calendarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\calendarmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\reservationcreatemode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\reservationcreatemode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\reservationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\reservationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\views\\reservation\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:views\\reservation\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\views\\home\\reservation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:views\\home\\reservation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\chatkareservation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:chatkareservation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\extensions\\userextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:extensions\\userextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|c:\\users\\lukas\\source\\repos\\rezervacni-kalendar-pro-chatku_bcsh200\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737E514C-03D5-4E4F-A274-521062489A92}|ChatkaReservation.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 174,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 97,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 3,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1434708980:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReservationController.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Controllers\\ReservationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReservationController.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Controllers\\ReservationController.cs",
+              "RelativeToolTip": "Controllers\\ReservationController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwEsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T21:46:35.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T21:53:13.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Calendar.cshtml",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Reservation\\Calendar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Reservation\\Calendar.cshtml",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Reservation\\Calendar.cshtml",
+              "RelativeToolTip": "Views\\Reservation\\Calendar.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAYwG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T20:37:08.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Availability.cshtml",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Home\\Availability.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Availability.cshtml",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Home\\Availability.cshtml",
+              "RelativeToolTip": "Views\\Home\\Availability.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T21:49:08.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1822320183:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1909200963:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T21:46:29.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Cottage.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\Cottage.cs",
+              "RelativeDocumentMoniker": "Models\\Cottage.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\Cottage.cs",
+              "RelativeToolTip": "Models\\Cottage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T22:00:51.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CalendarModel.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\CalendarModel.cs",
+              "RelativeDocumentMoniker": "Models\\CalendarModel.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\CalendarModel.cs",
+              "RelativeToolTip": "Models\\CalendarModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T13:58:09.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T11:55:03.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T21:49:10.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T21:49:09.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReservationCreateMode.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\ReservationCreateMode.cs",
+              "RelativeDocumentMoniker": "Models\\ReservationCreateMode.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\ReservationCreateMode.cs",
+              "RelativeToolTip": "Models\\ReservationCreateMode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T13:50:18.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\Reservation.cs",
+              "RelativeDocumentMoniker": "Models\\Reservation.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\Reservation.cs",
+              "RelativeToolTip": "Models\\Reservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T11:52:52.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ReservationViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\ReservationViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ReservationViewModel.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\ReservationViewModel.cs",
+              "RelativeToolTip": "Models\\ReservationViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T11:53:02.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Data\\SeedData.cs",
+              "RelativeDocumentMoniker": "Data\\SeedData.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Data\\SeedData.cs",
+              "RelativeToolTip": "Data\\SeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T21:46:44.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Reservation\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Reservation\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Reservation\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Reservation\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T12:10:01.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T21:46:41.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T12:35:28.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\RegisterViewModel.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\RegisterViewModel.cs",
+              "RelativeToolTip": "Models\\RegisterViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T11:53:03.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T11:53:06.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T13:46:09.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-10T12:37:42.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Reservation.cshtml",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Home\\Reservation.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Reservation.cshtml",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Views\\Home\\Reservation.cshtml",
+              "RelativeToolTip": "Views\\Home\\Reservation.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T12:29:08.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ChatkaReservation.csproj",
+              "DocumentMoniker": "C:\\Users\\lukas\\Source\\Repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\ChatkaReservation.csproj",
+              "RelativeDocumentMoniker": "ChatkaReservation.csproj",
+              "ToolTip": "C:\\Users\\lukas\\Source\\Repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\ChatkaReservation.csproj",
+              "RelativeToolTip": "ChatkaReservation.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-10T18:57:24.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UserExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Extensions\\UserExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\UserExtensions.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Extensions\\UserExtensions.cs",
+              "RelativeToolTip": "Extensions\\UserExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T12:15:54.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\lukas\\source\\repos\\Rezervacni-kalendar-pro-chatku_BCSH200\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T21:46:21.438Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{7f075f9f-1e1a-4ee8-9ce8-b8451fb61ec8}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

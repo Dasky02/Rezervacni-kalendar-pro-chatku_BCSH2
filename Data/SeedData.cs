@@ -9,32 +9,39 @@ public static class SeedData
         var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
         var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-        string[] roleNames = { "Customer", "Owner" };
-        IdentityResult roleResult;
+        string[] roleNames = { "Admin", "User" };
 
         foreach (var roleName in roleNames)
         {
             var roleExist = await roleManager.RoleExistsAsync(roleName);
             if (!roleExist)
             {
-                roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
+                await roleManager.CreateAsync(new IdentityRole(roleName));
             }
         }
 
-        // Přidání administrátora
-        var adminEmail = "admin@example.com";
-        var adminPassword = "Admin@123";
-
-        var adminUser = await userManager.FindByEmailAsync(adminEmail);
+        var adminUser = await userManager.FindByEmailAsync("admin@example.com");
         if (adminUser == null)
         {
             adminUser = new IdentityUser
             {
-                UserName = adminEmail,
-                Email = adminEmail
+                UserName = "admin@example.com",
+                Email = "admin@example.com"
             };
-            await userManager.CreateAsync(adminUser, adminPassword);
-            await userManager.AddToRoleAsync(adminUser, "Owner");
+
+            var result = await userManager.CreateAsync(adminUser, "Test123!");
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(adminUser, "Admin");
+            }
+        }
+        var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+
+        // Přidání seed dat pro chatky, pokud nejsou přítomna
+        if (!dbContext.Cottages.Any())
+        {
+            dbContext.Cottages.Add(new Cottage { Name = "Chatka A" });
+            await dbContext.SaveChangesAsync();
         }
     }
 }

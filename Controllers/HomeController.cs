@@ -27,7 +27,7 @@ public class HomeController : Controller
 
     public IActionResult Availability()
     {
-        var reservations = _context.Rezervace.ToList(); // Načtení rezervací z databáze
+        var reservations = _context.Reservations.ToList(); // Načtení rezervací z databáze
         return View(reservations); // Předání rezervací do pohledu
     }
 

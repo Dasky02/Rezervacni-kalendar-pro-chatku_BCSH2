@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Zde přidáme DbContext pro práci s databází
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -35,6 +34,13 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<ApplicationDbContext>();
+
+    // Povolujeme cizí klíče pro SQLite
+    await dbContext.Database.OpenConnectionAsync();
+    await dbContext.Database.ExecuteSqlRawAsync("PRAGMA foreign_keys = ON;");
+
+    // Inicializace seed dat (rolí, administrátora, chatky atd.)
     await SeedData.Initialize(services);
 }
 
@@ -58,4 +64,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.Run();

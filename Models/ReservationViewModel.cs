@@ -1,10 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ChatkaReservation.Models
 {
     public class ReservationViewModel
     {
-        public required string UzivatelId { get; set; }  // Změněno na ID uživatele pro lepší vazbu
-        public DateTime DatumOd { get; set; }
-        public DateTime DatumDo { get; set; }
-        public int ChatkaId { get; set; }
+        [Required]
+        public int CottageID { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime StartDate { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime EndDate { get; set; }
     }
 }

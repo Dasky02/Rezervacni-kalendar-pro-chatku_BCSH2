@@ -17,50 +17,53 @@ namespace ChatkaReservation.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
 
-            modelBuilder.Entity("ChatkaReservation.Models.Chatka", b =>
+            modelBuilder.Entity("ChatkaReservation.Models.Cottage", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CottageId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Kapacita")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Nazev")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("CottageId");
 
-                    b.ToTable("Chatky");
+                    b.ToTable("Cottages");
                 });
 
-            modelBuilder.Entity("ChatkaReservation.Models.Rezervace", b =>
+            modelBuilder.Entity("ChatkaReservation.Models.Reservation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ChatkaId")
+                    b.Property<int>("CottageID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DatumDo")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("DatumOd")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UzivatelId")
+                    b.Property<string>("CustomerEmail")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("ChatkaId");
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("UzivatelId");
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.ToTable("Rezervace");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CottageID");
+
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -255,23 +258,15 @@ namespace ChatkaReservation.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ChatkaReservation.Models.Rezervace", b =>
+            modelBuilder.Entity("ChatkaReservation.Models.Reservation", b =>
                 {
-                    b.HasOne("ChatkaReservation.Models.Chatka", "Chatka")
-                        .WithMany()
-                        .HasForeignKey("ChatkaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("ChatkaReservation.Models.Cottage", "Cottage")
+                        .WithMany("Reservations")
+                        .HasForeignKey("CottageID")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Uzivatel")
-                        .WithMany()
-                        .HasForeignKey("UzivatelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Chatka");
-
-                    b.Navigation("Uzivatel");
+                    b.Navigation("Cottage");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -323,6 +318,11 @@ namespace ChatkaReservation.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ChatkaReservation.Models.Cottage", b =>
+                {
+                    b.Navigation("Reservations");
                 });
 #pragma warning restore 612, 618
         }

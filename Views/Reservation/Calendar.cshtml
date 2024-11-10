@@ -1,0 +1,115 @@
+﻿@model ChatkaReservation.Models.CalendarModel
+@{
+    ViewData["Title"] = "Reservation Calendar";
+}
+
+<div class="container mt-4">
+    <h2>Reservation Calendar</h2>
+    <div id="calendar"></div>
+</div>
+
+<!-- Okno pro zadání dalších informací o rezervaci -->
+<div class="container mt-4">
+    <h2>Reservation Calendar</h2>
+    <div id="calendar"></div>
+
+    <!-- Modal for Reservation Details -->
+    <div class="modal" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservationModalLabel">Enter Reservation Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reservationForm">
+                        <div class="mb-3">
+                            <label for="customerName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="customerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="customerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="reservationNotes" class="form-label">Poznámka k rezervaci</label>
+                            <textarea class="form-control" id="reservationNotes" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveReservation">Save Reservation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- CSS pro FullCalendar -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet" />
+
+    <!-- JavaScript pro FullCalendar -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                selectable: true,
+                events: @Html.Raw(Json.Serialize(Model.Events)),
+                eventTimeFormat: { // Skrytí času
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    meridiem: false,
+                    hour12: false
+                },
+                eventDisplay: 'block', // Ukáže pouze datum, skrytí času
+                select: function (info) {
+                    $('#reservationModal').modal('show'); // Show modal for user input
+                    $('#saveReservation').click(function () {
+                        var customerName = $('#customerName').val();
+                        var customerEmail = $('#customerEmail').val();
+                        createReservation(info.start, info.end, customerName, customerEmail);
+                        $('#reservationModal').modal('hide'); // Close modal
+                    });
+                }
+            });
+            calendar.render();
+        });
+
+
+        function createReservation(start, end, name, email) {
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            $.ajax({
+                url: '@Url.Action("CreateReservation", "Reservation")',
+                type: 'POST',
+                contentType: 'application/json',
+                headers: {
+                    "RequestVerificationToken": token
+                },
+                data: JSON.stringify({
+                    cottageId: @Model.CottageID,
+                    startDate: start.toISOString().split('T')[0], // Odstranění času
+                    endDate: end.toISOString().split('T')[0], // Odstranění času
+                    customerName: name,
+                    customerEmail: email,
+                    reservationNotes: $('#reservationNotes').val() // Přidání poznámky
+                }),
+                success: function () {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    alert(xhr.responseText || 'An error occurred while creating the reservation.');
+                }
+            });
+        }
+
+
+    </script>
+}

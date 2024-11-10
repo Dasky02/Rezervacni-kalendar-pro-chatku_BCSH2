@@ -7,17 +7,24 @@ namespace ChatkaReservation.Data
 {
     public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
         {
         }
 
-        public DbSet<Chatka> Chatky { get; set; }
-        public DbSet<Rezervace> Rezervace { get; set; }
+        // DbSet pro chatky a rezervace
+        public DbSet<Cottage> Cottages { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
-            // Dal≈°√≠ konfigurace modelu (pokud je pot≈ôeba)
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Reservation>()
+                .HasOne(r => r.Cottage)
+                .WithMany(c => c.Reservations)
+                .HasForeignKey(r => r.CottageID)
+                .OnDelete(DeleteBehavior.Restrict); // Nebo jin· vhodn· volba
         }
     }
 }
