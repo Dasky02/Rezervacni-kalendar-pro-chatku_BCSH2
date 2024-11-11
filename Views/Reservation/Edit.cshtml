@@ -1,33 +1,38 @@
-@using System.Security.Claims
 @model ChatkaReservation.Models.Reservation
 
 @{
-    ViewData["Title"] = "Upravit rezervaci";
+    ViewData["Title"] = "Edit Reservation";
 }
 
-<h1>Upravit rezervaci</h1>
+<h2>Edit Reservation</h2>
 
-<form asp-action="Edit">
+<form asp-controller="Reservation" asp-action="Edit" method="post">
     <input type="hidden" asp-for="ID" />
-    <div class="form-group">
-        <label asp-for="StartDate" class="control-label"></label>
-        <input asp-for="StartDate" class="form-control" />
-        <span asp-validation-for="StartDate" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="EndDate" class="control-label"></label>
-        <input asp-for="EndDate" class="form-control" />
-        <span asp-validation-for="EndDate" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="CottageID" class="control-label"></label>
-        <select asp-for="CottageID" class="form-control" asp-items="ViewBag.Chatky"></select>
-        <span asp-validation-for="CottageID" class="text-danger"></span>
-    </div>
-    <input type="hidden" asp-for="CustomerEmail" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
-    <div class="form-group">
-        <input type="submit" value="Uložit změny" class="btn btn-primary" />
-    </div>
-</form>
 
-<a asp-action="Index">Zpět na seznam</a>
+    <div class="mb-3">
+        <label asp-for="CustomerName" class="form-label">Customer Name</label>
+        <input asp-for="CustomerName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CustomerEmail" class="form-label">Customer Email</label>
+        <input asp-for="CustomerEmail" class="form-control" type="email" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="StartDate" class="form-label">Start Date</label>
+        <input asp-for="StartDate" class="form-control" type="date" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EndDate" class="form-label">End Date</label>
+        <input asp-for="EndDate" class="form-control" type="date" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Notes" class="form-label">Notes</label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
