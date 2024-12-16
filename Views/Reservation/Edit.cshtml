@@ -1,4 +1,4 @@
-@model ChatkaReservation.Models.Reservation
+@model ChatkaReservation.Models.ReservationEditModel
 
 @{
     ViewData["Title"] = "Edit Reservation";
@@ -6,33 +6,92 @@
 
 <h2>Edit Reservation</h2>
 
-<form asp-controller="Reservation" asp-action="Edit" method="post">
-    <input type="hidden" asp-for="ID" />
+<form id="editReservationForm" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" id="Reservation_ID" name="ID" value="@Model.ID" />
 
     <div class="mb-3">
-        <label asp-for="CustomerName" class="form-label">Customer Name</label>
-        <input asp-for="CustomerName" class="form-control" required />
+        <label for="cottageID" class="form-label">Cottage</label>
+        <select class="form-control" id="cottageID" name="CottageID" required>
+            @foreach (var cottage in (SelectList)ViewBag.Cottages)
+            {
+                <option value="@cottage.Value" selected="@(cottage.Value == Model.CottageID.ToString() ? "selected" : null)">@cottage.Text</option>
+            }
+        </select>
     </div>
 
     <div class="mb-3">
-        <label asp-for="CustomerEmail" class="form-label">Customer Email</label>
-        <input asp-for="CustomerEmail" class="form-control" type="email" required />
+        <label for="customerName" class="form-label">Customer Name</label>
+        <input type="text" class="form-control" id="customerName" name="CustomerName" required value="@Model.CustomerName" />
     </div>
 
     <div class="mb-3">
-        <label asp-for="StartDate" class="form-label">Start Date</label>
-        <input asp-for="StartDate" class="form-control" type="date" required />
+        <label for="customerEmail" class="form-label">Customer Email</label>
+        <input type="email" class="form-control" id="customerEmail" name="CustomerEmail" required value="@Model.CustomerEmail" />
     </div>
 
     <div class="mb-3">
-        <label asp-for="EndDate" class="form-label">End Date</label>
-        <input asp-for="EndDate" class="form-control" type="date" required />
+        <label for="startDate" class="form-label">Day Befor Start Date</label>
+        <input type="date" class="form-control" id="startDate" name="StartDate" required value="@Model.StartDate.ToString("yyyy-MM-dd")" />
     </div>
 
     <div class="mb-3">
-        <label asp-for="Notes" class="form-label">Notes</label>
-        <textarea asp-for="Notes" class="form-control"></textarea>
+        <label for="endDate" class="form-label">End Date</label>
+        <input type="date" class="form-control" id="endDate" name="EndDate" required value="@Model.EndDate.ToString("yyyy-MM-dd")" />
+    </div>
+
+    <div class="mb-3">
+        <label for="notes" class="form-label">Notes</label>
+        <textarea class="form-control" id="notes" name="Notes">@Model.Notes</textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Save Changes</button>
 </form>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Odstranění předchozího event handleru, aby se zabránilo duplicitnímu odesílání
+            $('#editReservationForm').off('submit').on('submit', function (e) {
+                e.preventDefault();
+
+                // Získání hodnot Anti-Forgery Tokenu
+                var token = $('input[name="__RequestVerificationToken"]').val();
+
+                var reservationData = {
+                    ID: $('#Reservation_ID').val(),
+                    CottageID: $('#cottageID').val(),
+                    CustomerName: $('#customerName').val(),
+                    CustomerEmail: $('#customerEmail').val(),
+                    StartDate: $('#startDate').val(), // Bez přidávání času
+                    EndDate: $('#endDate').val(),     // Bez přidávání času
+                    Notes: $('#notes').val()
+                };
+
+                // Logování dat před odesláním
+                console.log("Sending reservation data:", reservationData);
+
+                $.ajax({
+                    url: '@Url.Action("Edit", "Reservation")',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    headers: {
+                        "RequestVerificationToken": token // Přidání tokenu do hlaviček
+                    },
+                    data: JSON.stringify(reservationData),
+                    success: function (response) {
+                        alert('Rezervace byla úspěšně upravena.');
+                        window.location.href = '@Url.Action("List", "Reservation")';
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("Status: " + status);
+                        console.log("Error: " + error);
+                        console.log("Response Text: " + xhr.responseText);
+                        alert('Chyba při úpravě rezervace: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+}

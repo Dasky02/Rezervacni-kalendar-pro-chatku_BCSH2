@@ -1,15 +1,14 @@
 using ChatkaReservation.Data;
-using ChatkaReservation.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Přidání DbContext s SQLite
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Přidání podpory pro ASP.NET Identity
+// Přidání Identity služeb s podporou rolí a přizpůsobenými možnostmi
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     // Nastavení politiky pro hesla
@@ -25,8 +24,16 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// Přidání podporovaných služeb pro MVC
+// Přidání podporovaných služeb pro MVC a Razor Pages
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+
+// Přidání vlastní politiky autorizace pro AdminOnly
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireRole("Admin"));
+});
 
 var app = builder.Build();
 
@@ -44,7 +51,7 @@ using (var scope = app.Services.CreateScope())
     await SeedData.Initialize(services);
 }
 
-// Configure the HTTP request pipeline.
+// Konfigurace HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -60,9 +67,10 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Mapování výchozí trasy pro MVC
+// Mapování výchozí trasy pro MVC a Razor Pages
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages(); // Potřebné pro Identity
 
-app.Run();
+app.Run(); 

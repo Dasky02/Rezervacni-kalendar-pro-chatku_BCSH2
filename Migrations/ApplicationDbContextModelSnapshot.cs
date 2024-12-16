@@ -19,7 +19,7 @@ namespace ChatkaReservation.Migrations
 
             modelBuilder.Entity("ChatkaReservation.Models.Cottage", b =>
                 {
-                    b.Property<int>("CottageId")
+                    b.Property<int>("CottageID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -27,7 +27,7 @@ namespace ChatkaReservation.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("CottageId");
+                    b.HasKey("CottageID");
 
                     b.ToTable("Cottages");
                 });
@@ -53,7 +53,6 @@ namespace ChatkaReservation.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("StartDate")

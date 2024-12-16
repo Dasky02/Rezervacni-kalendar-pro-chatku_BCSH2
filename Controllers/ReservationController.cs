@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using System;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace ChatkaReservation.Controllers
 {
+    
     public class ReservationController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -17,15 +19,15 @@ namespace ChatkaReservation.Controllers
             _context = context;
         }
 
-        // ZobrazenÌ kalend·¯e a rezervacÌ
+        // Zobrazen√≠ kalend√°≈ôe a rezervac√≠
         public IActionResult Calendar()
         {
             var events = _context.Reservations
                 .Select(r => new CalendarEvent
                 {
                     Title = r.CustomerName,
-                    Start = r.StartDate.Date, // Pouze datum, Ëas je ignorov·n
-                    End = r.EndDate.Date // Pouze datum, Ëas je ignorov·n
+                    Start = r.StartDate.AddDays(1),
+                    End = r.EndDate.AddDays(1) // FullCalendar end date is exclusive
                 })
                 .ToList();
 
@@ -36,12 +38,11 @@ namespace ChatkaReservation.Controllers
             });
         }
 
-
-        // ZobrazenÌ formul·¯e pro vytvo¯enÌ rezervace
+        // Zobrazen√≠ formul√°≈ôe pro vytvo≈ôen√≠ rezervace
         public IActionResult Create()
         {
             var cottages = _context.Cottages
-                .Select(c => new { c.CottageId, c.Name }) // NaËÌt·me ID a n·zev chatky
+                .Select(c => new { c.CottageID, c.Name })
                 .ToList();
 
             ViewBag.Cottages = new SelectList(cottages, "CottageID", "Name");
@@ -49,108 +50,148 @@ namespace ChatkaReservation.Controllers
             return View();
         }
 
-        // Akce pro vytvo¯enÌ rezervace (pouûÌv· AJAX pro POST)
+        // Akce pro vytvo≈ôen√≠ rezervace (pou≈æ√≠v√° AJAX pro POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateReservation([FromBody] ReservationCreateModel model)
         {
             if (ModelState.IsValid)
             {
-                // Zkontrolov·nÌ, zda je Ëasov˝ interval jiû obsazen
+                // Logov√°n√≠ p≈ôijat√Ωch dat
+                Console.WriteLine($"Creating reservation: CottageID={model.CottageID}, StartDate={model.StartDate}, EndDate={model.EndDate}");
+
+                // Zkontrolov√°n√≠, zda je ƒçasov√Ω interval ji≈æ obsazen
                 var existingReservation = _context.Reservations
                     .FirstOrDefault(r => r.CottageID == model.CottageID &&
-                                         ((r.StartDate > model.StartDate && r.StartDate < model.EndDate) ||
-                                          (r.EndDate > model.StartDate && r.EndDate <= model.EndDate)));
+                                        ((r.StartDate < model.EndDate) && (r.EndDate > model.StartDate)));
 
                 if (existingReservation != null)
                 {
-                    return BadRequest("Tento Ëas je jiû obsazen.");
-                
+                    return BadRequest("Tento ƒças je ji≈æ obsazen.");
                 }
 
-                // Vytvo¯enÌ novÈ rezervace
+                // Vytvo≈ôen√≠ nov√© rezervace
                 var reservation = new Reservation
                 {
                     CottageID = model.CottageID,
-                    StartDate = model.StartDate.AddDays(1),
-                    EndDate = model.EndDate.AddDays(0),
+                    StartDate = model.StartDate, 
+                    EndDate = model.EndDate,     
                     CustomerName = model.CustomerName,
                     CustomerEmail = model.CustomerEmail,
-                    Notes = model.ReservationNotes  // UloûenÌ pozn·mky
+                    Notes = model.ReservationNotes
                 };
 
                 _context.Reservations.Add(reservation);
                 _context.SaveChanges();
 
-                return Ok(); // Vr·tÌ odpovÏÔ na ˙spÏönÈ vytvo¯enÌ rezervace
+                Console.WriteLine("Reservation created successfully.");
+                return Ok(); // Vr√°t√≠ odpovƒõƒè na √∫spƒõ≈°n√© vytvo≈ôen√≠ rezervace
             }
-            return BadRequest("Chyba p¯i vytv·¯enÌ rezervace.");
+            // Logov√°n√≠ neplatn√©ho ModelState
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            foreach (var error in errors)
+            {
+                Console.WriteLine($"ModelState Error: {error.ErrorMessage}");
+            }
+            return BadRequest("Chyba p≈ôi vytv√°≈ôen√≠ rezervace.");
         }
 
-
-
-        // Akce pro zobrazenÌ seznamu vöech rezervacÌ
+        // Akce pro zobrazen√≠ seznamu v≈°ech rezervac√≠
         public IActionResult List()
         {
             var reservations = _context.Reservations
-                .Include(r => r.Cottage)  // NaËtenÌ dat z nav·zanÈ tabulky Cottage
+                .Include(r => r.Cottage)
                 .ToList();
             return View(reservations);
         }
 
-        //GET akce pro ˙pravu rezervace
+        // GET akce pro √∫pravu rezervace
         public IActionResult Edit(int id)
         {
             var reservation = _context.Reservations.Find(id);
             if (reservation == null) return NotFound();
-            return View(reservation);
+
+            var editModel = new ReservationEditModel
+            {
+                ID = reservation.ID,
+                CottageID = reservation.CottageID,
+                CustomerName = reservation.CustomerName,
+                CustomerEmail = reservation.CustomerEmail,
+                StartDate = reservation.StartDate,
+                EndDate = reservation.EndDate,
+                Notes = reservation.Notes
+            };
+
+            var cottages = _context.Cottages
+                .Select(c => new { c.CottageID, c.Name })
+                .ToList();
+
+            ViewBag.Cottages = new SelectList(cottages, "CottageID", "Name", reservation.CottageID);
+
+            return View(editModel);
         }
 
         // POST: Reservation/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Reservation reservation)
+        public IActionResult Edit(int id, [FromBody] ReservationEditModel model)
         {
-            if (id != reservation.ID)
+            if (id != model.ID)
             {
-                Console.WriteLine("ID does not match reservation ID."); // Debug zpr·va
-                return BadRequest();
+                return BadRequest("ID se neshoduje.");
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
+                // Log validation errors
+                var validationErrors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                foreach (var error in validationErrors)
                 {
-                    _context.Update(reservation);
-                    _context.SaveChanges();
-                    Console.WriteLine("Reservation updated successfully."); // Debug zpr·va
-                    return RedirectToAction(nameof(Manage));
+                    Console.WriteLine($"Validation error: {error}");
                 }
-                catch (DbUpdateException ex)
-                {
-                    Console.WriteLine("Error updating reservation: " + ex.Message); // Debug zpr·va
-                    ModelState.AddModelError("", "Error updating reservation: " + ex.Message);
-                }
+                return BadRequest("Chyba p≈ôi odes√≠l√°n√≠ formul√°≈ôe.");
             }
-            else
+
+            var reservation = _context.Reservations.Find(id);
+            if (reservation == null)
             {
-                Console.WriteLine("ModelState is not valid"); // Debug zpr·va
+                return NotFound("Rezervace nebyla nalezena.");
             }
-            return View(reservation);
+
+            // Kontrola, zda je nov√Ω term√≠n rezervace ji≈æ obsazen√Ω
+            var existingReservation = _context.Reservations
+                .FirstOrDefault(r => r.CottageID == model.CottageID &&
+                                     ((r.StartDate < model.EndDate) && (r.EndDate > model.StartDate)) &&
+                                     r.ID != id);
+
+            if (existingReservation != null)
+            {
+                return BadRequest("Tento ƒças je ji≈æ obsazen.");
+            }
+
+            // Aktualizace √∫daj≈Ø rezervace
+            reservation.CustomerName = model.CustomerName;
+            reservation.CustomerEmail = model.CustomerEmail;
+            reservation.StartDate = model.StartDate.Date; // Nastaven√≠ ƒçasu na 00:00:00
+            reservation.EndDate = model.EndDate.Date;     // Nastaven√≠ ƒçasu na 00:00:00
+            reservation.Notes = model.Notes;
+            reservation.CottageID = model.CottageID;
+
+            // Ulo≈æen√≠ zmƒõn do datab√°ze
+            try
+            {
+                _context.SaveChanges();
+                Console.WriteLine("Reservation updated successfully."); // Debug zpr√°va
+                return Ok(); // Odpovƒõƒè na √∫spƒõ≈°n√© ulo≈æen√≠ zmƒõn
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine("Chyba p≈ôi aktualizaci rezervace: " + ex.Message);
+                return BadRequest("Chyba p≈ôi aktualizaci rezervace: " + ex.Message);
+            }
         }
 
-
-        public IActionResult Manage()
-        {
-            var reservations = _context.Reservations.Include(r => r.Cottage).ToList();
-            return View(reservations);
-        }
-
-
-
-
-
-        // Akce pro smaz·nÌ rezervace
+        // Akce pro smaz√°n√≠ rezervace
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -162,6 +203,5 @@ namespace ChatkaReservation.Controllers
             }
             return RedirectToAction(nameof(List));
         }
-
     }
 }

@@ -1,7 +1,28 @@
 ﻿@model ChatkaReservation.Models.CalendarModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
 @{
     ViewData["Title"] = "Reservation Calendar";
+    bool isAdmin = User.IsInRole("Admin");
 }
+
+<style>
+    .fc-event {
+        background-color: #808080 !important;
+        border-color: #808080 !important;
+    }
+    .fc-day-past {
+        background-color: #f0f0f0 !important;
+    }
+    .fc-day-disabled {
+        background-color: #d3d3d3 !important;
+        pointer-events: none;
+    }
+    .fc-day-disabled-text {
+        color: #a9a9a9 !important;
+    }
+</style>
 
 <div class="container mt-4">
     <h2>Reservation Calendar</h2>
@@ -9,42 +30,41 @@
 </div>
 
 <div>
-    <a asp-controller="Reservation" asp-action="List">Správa rezervací</a>
+    @* Odkaz na správu rezervací je viditelný pouze pro administrátory *@
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-controller="Reservation" asp-action="List" class="btn btn-secondary mt-3">Správa rezervací</a>
+    }
 </div>
 
-<!-- Okno pro zadání dalších informací o rezervaci -->
-<div class="container mt-4">
-    <h2>Reservation Calendar</h2>
-    <div id="calendar"></div>
-
-    <!-- Modal for Reservation Details -->
-    <div class="modal" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="reservationModalLabel">Enter Reservation Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="reservationForm">
-                        <div class="mb-3">
-                            <label for="customerName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="customerName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="customerEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="customerEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="reservationNotes" class="form-label">Poznámka k rezervaci</label>
-                            <textarea class="form-control" id="reservationNotes" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveReservation">Save Reservation</button>
-                </div>
+<!-- Modal for Reservation Details -->
+<div class="modal" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationModalLabel">Enter Reservation Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @Html.AntiForgeryToken()
+                <form id="reservationForm">
+                    <div class="mb-3">
+                        <label for="customerName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="customerName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="customerEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reservationNotes" class="form-label">Poznámka k rezervaci</label>
+                        <textarea class="form-control" id="reservationNotes" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveReservation">Save Reservation</button>
             </div>
         </div>
     </div>
@@ -63,32 +83,83 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
+            var today = new Date();
+            today.setHours(0, 0, 0, 0); // Nastavení času na 00:00:00
+
+            var reservedDates = @Html.Raw(Json.Serialize(Model.Events)); // Události z modelu
+            
+
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                selectable: true,
-                events: @Html.Raw(Json.Serialize(Model.Events)),
-                eventTimeFormat: { // Skrytí času
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    meridiem: false,
-                    hour12: false
+            initialView: 'dayGridMonth',
+            selectable: true,
+            editable: false,
+            events: reservedDates,
+            eventContent: function(arg) {
+                var isAdmin = @Json.Serialize(User.IsInRole("Admin"));
+                if (isAdmin) {
+                    return { html: arg.event.title };
+                } else {
+                    return { html: 'Reserved' };
+                }
+            },
+            validRange: {
+                start: today.toISOString().split('T')[0]
+            },
+                selectAllow: function (selectInfo) {
+                    // Zkontrolujte, zda vybraný rozsah dat není rezervován
+                    for (let event of reservedDates) {
+                        let eventStart = new Date(event.start);
+                        let eventEnd = new Date(event.end);
+                        let selectionStart = new Date(selectInfo.start);
+                        let selectionEnd = new Date(selectInfo.end);
+
+                        // Kontrola překrytí
+                        if (selectionStart < eventEnd && selectionEnd > eventStart) {
+                            return false; // Zakázat výběr, pokud je oblast rezervována
+                        }
+                    }
+                    return true; // Povolit výběr, pokud není rezervována
                 },
-                eventDisplay: 'block', // Ukáže pouze datum, skrytí času
+                dayCellClassNames: function (arg) {
+                    var date = arg.date;
+                    var isDisabled = false;
+
+                    // Zamknout předchozí data
+                    if (date < today) {
+                        isDisabled = true;
+                    }
+
+                    // Zamknout rezervovaná data
+                    for (let event of reservedDates) {
+                        let eventStart = new Date(event.start);
+                        let eventEnd = new Date(event.end);
+                        if (date >= eventStart && date < eventEnd) {
+                            isDisabled = true;
+                            break;
+                        }
+                    }
+
+                    return isDisabled ? ['fc-day-disabled'] : [];
+                },
                 select: function (info) {
-                    $('#reservationModal').modal('show'); // Show modal for user input
-                    $('#saveReservation').click(function () {
+                    // Zobrazit modal pro zadání rezervace, pokud je den povolen
+                    $('#reservationModal').modal('show');
+
+                    // Odstranit předchozí event handler, aby se zabránilo duplicitnímu odesílání
+                    $('#saveReservation').off('click').on('click', function () {
                         var customerName = $('#customerName').val();
                         var customerEmail = $('#customerEmail').val();
-                        createReservation(info.start, info.end, customerName, customerEmail);
-                        $('#reservationModal').modal('hide'); // Close modal
+                        var reservationNotes = $('#reservationNotes').val();
+                        createReservation(info.start, info.end, customerName, customerEmail, reservationNotes);
+                        $('#reservationModal').modal('hide'); // Zavřít modal
                     });
                 }
             });
+
             calendar.render();
         });
 
-
-        function createReservation(start, end, name, email) {
+        function createReservation(start, end, name, email, notes) {
             var token = $('input[name="__RequestVerificationToken"]').val();
             $.ajax({
                 url: '@Url.Action("CreateReservation", "Reservation")',
@@ -103,17 +174,16 @@
                     endDate: end.toISOString().split('T')[0], // Odstranění času
                     customerName: name,
                     customerEmail: email,
-                    reservationNotes: $('#reservationNotes').val() // Přidání poznámky
+                    reservationNotes: notes // Přidání poznámky
                 }),
                 success: function () {
-                    location.reload();
+                    alert('Reservation was successfully created.');
+                    location.reload(); // Obnovení stránky
                 },
                 error: function (xhr) {
                     alert(xhr.responseText || 'An error occurred while creating the reservation.');
                 }
             });
         }
-
-
     </script>
 }

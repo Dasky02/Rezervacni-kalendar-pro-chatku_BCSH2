@@ -6,35 +6,44 @@ public static class SeedData
 {
     public static async Task Initialize(IServiceProvider serviceProvider)
     {
+        // Inicializace rolí
         var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-        var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-        string[] roleNames = { "Admin", "User" };
-
-        foreach (var roleName in roleNames)
+        string[] roles = { "Admin", "User" };
+        foreach (var role in roles)
         {
-            var roleExist = await roleManager.RoleExistsAsync(roleName);
-            if (!roleExist)
-            {
-                await roleManager.CreateAsync(new IdentityRole(roleName));
+            if (!await roleManager.RoleExistsAsync(role))
+            { 
+               await roleManager.CreateAsync(new IdentityRole(role));
             }
         }
 
-        var adminUser = await userManager.FindByEmailAsync("admin@example.com");
+        // Inicializace administrátorského uživatele
+        var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+        string adminEmail = "admin@chatkarezervace.cz";
+        string adminPassword = "Admin@123"; // Ujistěte se, že heslo splňuje požadavky Identity
+
+        var adminUser = await userManager.FindByEmailAsync(adminEmail);
         if (adminUser == null)
         {
             adminUser = new IdentityUser
             {
-                UserName = "admin@example.com",
-                Email = "admin@example.com"
+                UserName = adminEmail,
+                Email = adminEmail,
+                EmailConfirmed = true
             };
 
-            var result = await userManager.CreateAsync(adminUser, "Test123!");
+            var result = await userManager.CreateAsync(adminUser, adminPassword);
             if (result.Succeeded)
             {
                 await userManager.AddToRoleAsync(adminUser, "Admin");
             }
+            else
+            {
+                throw new Exception("Failed to create admin user.");
+            }
         }
+
         var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
 
         // Přidání seed dat pro chatky, pokud nejsou přítomna
@@ -44,4 +53,4 @@ public static class SeedData
             await dbContext.SaveChangesAsync();
         }
     }
-}
+} 

@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ChatkaReservation.Models
@@ -7,7 +8,7 @@ namespace ChatkaReservation.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Cottage ID is required.")]
-        public int CottageID { get; set; }  // Cizí klíč na tabulku Cottages
+        public int CottageID { get; set; }
 
         [Required(ErrorMessage = "Customer Email is required.")]
         [EmailAddress(ErrorMessage = "Invalid Email Address.")]
@@ -24,11 +25,8 @@ namespace ChatkaReservation.Models
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
 
         public Cottage Cottage { get; set; }
     }
-
-
-
 }

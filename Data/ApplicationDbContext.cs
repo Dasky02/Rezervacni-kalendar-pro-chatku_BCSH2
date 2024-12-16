@@ -24,7 +24,7 @@ namespace ChatkaReservation.Data
                 .HasOne(r => r.Cottage)
                 .WithMany(c => c.Reservations)
                 .HasForeignKey(r => r.CottageID)
-                .OnDelete(DeleteBehavior.Restrict); // Nebo jiná vhodná volba
+                .OnDelete(DeleteBehavior.Restrict); // Nebo jinï¿½ vhodnï¿½ volba
         }
     }
 }

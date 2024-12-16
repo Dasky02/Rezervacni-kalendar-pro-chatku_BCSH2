@@ -24,7 +24,7 @@
                 <td>@reservation.ID</td>
                 <td>@reservation.Cottage.Name</td>
                 <td>@reservation.CustomerName</td>
-                <td>@reservation.StartDate.ToShortDateString()</td>
+                <td>@reservation.StartDate.AddDays(1).ToShortDateString()</td>
                 <td>@reservation.EndDate.ToShortDateString()</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@reservation.ID" class="btn btn-warning">Edit</a>
